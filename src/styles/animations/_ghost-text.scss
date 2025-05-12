@@ -1,0 +1,34 @@
+// Ghost Text Effect Animation
+
+@keyframes ghost-text {
+  0%, 100% { 
+    opacity: 0.8; 
+    filter: blur(0.5px) drop-shadow(0 0 5px rgba(200, 200, 255, 0.5));
+    text-shadow: 0 0 10px rgba(200, 200, 255, 0.7);
+  }
+  25% { 
+    opacity: 0.3;
+    filter: blur(1px) drop-shadow(0 0 10px rgba(150, 150, 255, 0.8));
+    text-shadow: 0 0 15px rgba(150, 150, 255, 0.9);
+  }
+  50% { 
+    opacity: 0.1;
+    filter: blur(2px) drop-shadow(0 0 15px rgba(100, 100, 255, 0.9));
+    text-shadow: 0 0 20px rgba(100, 100, 255, 1);
+    transform: translateY(-2px);
+  }
+  75% {
+    opacity: 0.5;
+    filter: blur(1.5px) drop-shadow(0 0 12px rgba(175, 175, 255, 0.7));
+    text-shadow: 0 0 17px rgba(175, 175, 255, 0.8);
+  }
+}
+
+html.horror-ghost-text {
+  --color-white: #e0e0ff;
+}
+
+html.horror-ghost-text .auth-card-wrapper {
+  animation: ghost-text 4s ease-in-out infinite;
+  will-change: opacity, filter, transform;
+}

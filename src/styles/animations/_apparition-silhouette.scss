@@ -1,0 +1,34 @@
+// Apparition Silhouette Effect Animation
+
+@keyframes apparition-silhouette-fade {
+  0%, 100% { opacity: 0; transform: scale(0.8) translateX(-100px); filter: blur(10px); }
+  30%, 70% { opacity: 0.15; transform: scale(1) translateX(0px); filter: blur(3px); }
+  50% { opacity: 0.25; transform: scale(1.1) translateX(20px); filter: blur(1px); }
+}
+@keyframes apparition-colors {
+  0%, 100% { filter: grayscale(1) brightness(0.7) contrast(1.5); }
+  50% { filter: sepia(0.8) brightness(0.6) contrast(1.2); }
+}
+html.horror-apparition-silhouette .auth-view {
+  position: relative;
+  overflow: hidden;
+  animation: apparition-colors 15s linear infinite alternate;
+}
+html.horror-apparition-silhouette .auth-view::after {
+  content: "";
+  position: absolute;
+  top: 10%;
+  left: 50%;
+  width: 150px; /* Adjust size of silhouette */
+  height: 70%; /* Adjust size of silhouette */
+  background: radial-gradient(ellipse at center, rgba(50,0,0,0.5) 0%, rgba(50,0,0,0) 70%); /* Dark, vague shape */
+  border-radius: 40% 40% 10% 10% / 70% 70% 30% 30%; /* Vague human-like shape */
+  animation: apparition-silhouette-fade 10s ease-in-out infinite;
+  z-index: 0; /* Behind auth-card */
+  transform-style: preserve-3d; /* For better 3D-like movement if perspective is added */
+}
+html.horror-apparition-silhouette {
+  --auth-background-color: #0a0505;
+  --color-white: #b0a0a0;
+  --color-white-rgb: 176,160,160;
+}

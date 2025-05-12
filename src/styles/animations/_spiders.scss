@@ -1,0 +1,48 @@
+// Crawling Spiders Effect Animation
+
+@keyframes crawling-spider-leg-move1 { 0%, 100% { transform: rotate(-15deg); } 50% { transform: rotate(15deg); } }
+@keyframes crawling-spider-leg-move2 { 0%, 100% { transform: rotate(15deg); } 50% { transform: rotate(-15deg); } }
+@keyframes crawling-spider-path {
+  0% { bottom: -50px; left: 10%; transform: rotate(15deg); }
+  25% { bottom: 30%; left: 30%; transform: rotate(-10deg); }
+  50% { bottom: 60%; left: 15%; transform: rotate(20deg); }
+  75% { bottom: 80%; left: 40%; transform: rotate(-5deg); }
+  100% { bottom: 110%; left: 20%; transform: rotate(10deg); } /* Crawl off screen */
+}
+.crawling-spider { /* This class will be added by JS to a div inside auth-card */
+  position: absolute;
+  width: 40px; /* Spider body size */
+  height: 30px;
+  background-color: #1a1a1a;
+  border-radius: 50%;
+  animation: crawling-spider-path 15s linear infinite;
+  z-index: 20; /* Above card content */
+}
+.crawling-spider::before, .crawling-spider::after { /* Legs groups */
+  content: "";
+  position: absolute;
+  width: 80%; height: 150%; /* Relative to body */
+  top: -25%; 
+}
+.crawling-spider::before { left: -60%; transform-origin: 100% 50%; animation: crawling-spider-leg-move1 0.4s infinite alternate; } /* Left legs */
+.crawling-spider::after { right: -60%; transform-origin: 0% 50%; animation: crawling-spider-leg-move2 0.4s infinite alternate; } /* Right legs */
+
+/* Individual legs using box-shadows on pseudo-elements for simplicity */
+.crawling-spider::before {
+  box-shadow: 
+    0px -10px 0 2px #111, /* Leg 1 */
+    5px 0px 0 2px #111,   /* Leg 2 */
+    0px 10px 0 2px #111;  /* Leg 3 */
+}
+.crawling-spider::after {
+  box-shadow: 
+    0px -10px 0 2px #111, /* Leg 4 */
+    -5px 0px 0 2px #111,  /* Leg 5 */
+    0px 10px 0 2px #111; /* Leg 6 */
+}
+/* This is a very simplified spider. True SVG would be better. */
+/* We'll use a class on auth-card-wrapper to host the spider div */
+html.horror-crawling-spiders .auth-card-wrapper {
+  position: relative; /* For spider positioning */
+  overflow: hidden; /* If spiders crawl only on card */
+}

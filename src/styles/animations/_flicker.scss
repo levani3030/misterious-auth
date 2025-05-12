@@ -1,0 +1,14 @@
+// Flicker Effect Animation
+
+@keyframes flicker {
+  0%, 100% { opacity: 1; filter: brightness(1); }
+  10%, 30%, 70%, 90% { opacity: 0.8; filter: brightness(0.8); }
+  20%, 80% { opacity: 0.5; filter: brightness(1.2); }
+  40%, 60% { opacity: 0.2; filter: brightness(0.5); }
+  50% { opacity: 0.1; filter: brightness(0.3); }
+}
+
+html.horror-flicker .auth-card-wrapper {
+  animation: flicker 0.5s infinite steps(1, end);
+  will-change: opacity, filter;
+}

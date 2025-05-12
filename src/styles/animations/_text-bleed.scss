@@ -1,0 +1,18 @@
+// Text Bleed Effect Animation
+
+@keyframes text-bleed {
+  0% { text-shadow: 0 0 1px rgba(var(--color-white-rgb), 0.5); color: var(--color-white); }
+  50% { text-shadow: 0 0 5px rgba(255,0,0,0.7), 0 0 10px rgba(255,0,0,0.5); color: #FF8A8A; }
+  100% { text-shadow: 0 0 2px rgba(200,0,0,0.8), 0 0 5px rgba(200,0,0,0.6); color: #FF4500; }
+}
+
+/* Target elements *within* the wrapper */
+html.horror-text-bleed .auth-card-wrapper .title,
+html.horror-text-bleed .auth-card-wrapper .subtitle,
+html.horror-text-bleed .auth-card-wrapper label,
+html.horror-text-bleed .auth-card-wrapper button,
+html.horror-text-bleed .auth-card-wrapper .forgot-password,
+html.horror-text-bleed .auth-card-wrapper .back-to-login,
+html.horror-text-bleed .auth-card-wrapper .instruction-text {
+  animation: text-bleed 2s ease-in-out infinite alternate;
+}

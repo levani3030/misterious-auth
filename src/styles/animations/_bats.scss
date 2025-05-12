@@ -1,0 +1,54 @@
+// Flying Bats Effect Animation
+
+@keyframes flying-bat-flap {
+  0%, 100% { transform: scaleY(1); }
+  50% { transform: scaleY(0.6) rotate(5deg); }
+}
+@keyframes flying-bat-path {
+  0% { top: 10%; left: -10%; transform: scale(0.5) rotateZ(-15deg); opacity: 0.8; }
+  25% { top: 30%; left: 40%; transform: scale(0.7) rotateZ(10deg); opacity: 1; }
+  50% { top: 15%; left: 80%; transform: scale(0.6) rotateZ(-5deg); opacity: 0.9; }
+  75% { top: 40%; left: 50%; transform: scale(0.8) rotateZ(15deg); opacity: 1; }
+  100% { top: 20%; left: 110%; transform: scale(0.5) rotateZ(-10deg); opacity: 0.8; }
+}
+html.horror-flying-bats .auth-view {
+  position: relative;
+  overflow: hidden; /* Keep bats within view */
+}
+.flying-bat { /* This class will be added to dynamically created divs by JS */
+  position: absolute;
+  width: 50px; /* Bat size */
+  height: 30px; /* Bat size */
+  background-color: #111; /* Bat color */
+  clip-path: polygon(0% 50%, 20% 0%, 50% 30%, 80% 0%, 100% 50%, 50% 100%); /* Simple bat shape */
+  animation-name: flying-bat-path, flying-bat-flap;
+  animation-timing-function: linear, ease-in-out;
+  animation-iteration-count: infinite, infinite;
+  animation-direction: normal, alternate;
+  z-index: 15;
+}
+/* Multiple bats with different timings/paths would be best with JS creating elements */
+/* For CSS only, we can use pseudo-elements for a couple */
+html.horror-flying-bats .auth-view::before,
+html.horror-flying-bats .auth-view::after {
+  content: "";
+  position: absolute;
+  width: 60px; height: 35px; background-color: #222;
+  clip-path: polygon(0% 50%, 20% 0%, 50% 30%, 80% 0%, 100% 50%, 50% 100%);
+  animation-name: flying-bat-path, flying-bat-flap;
+  animation-timing-function: linear, ease-in-out;
+  animation-iteration-count: infinite, infinite;
+  animation-direction: normal, alternate;
+  z-index: 15;
+}
+html.horror-flying-bats .auth-view::before {
+  animation-duration: 8s, 0.3s;
+  animation-delay: 0s;
+  transform: scale(0.6);
+}
+html.horror-flying-bats .auth-view::after {
+  animation-duration: 10s, 0.25s;
+  animation-delay: -3s; /* Offset start */
+  transform: scale(0.4);
+  left: 120%; /* Start off-screen differently */
+}

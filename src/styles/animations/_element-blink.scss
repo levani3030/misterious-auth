@@ -1,0 +1,12 @@
+// Element Blink Effect Animation
+
+@keyframes element-true-blink-effect {
+  0%, 100% { opacity: 1; filter: brightness(100%); }
+  50% { opacity: 0.4; filter: brightness(60%); }
+  52% { opacity: 1; filter: brightness(120%); } /* Quick flash */
+  54% { opacity: 0.3; filter: brightness(50%); }
+}
+html.horror-element-blink .title { 
+  animation: element-true-blink-effect 2s infinite steps(1, end); /* Using steps for a more abrupt blink */
+  /* transform-origin: center; /* Not needed for opacity/brightness blink */
+}

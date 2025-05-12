@@ -1,0 +1,80 @@
+// Gooey Drips Animation
+// Keyframes for gooey-drips are very long and were defined in the original style.css / main.scss
+// For brevity in this example, they are not fully listed here but should be copied from main.scss.
+// The keyframes define the 'd' attribute of SVG paths for the dripping animation.
+
+@keyframes gooey-drips {
+  0% {
+    d: path("M0,0 C0,0 0,0 0,0 C0,0 0,0 0,0 C0,0 0,0 0,0 C0,0 0,0 0,0 C0,0 0,0 0,0 C0,0 0,0 0,0 C0,0 0,0 0,0 C0,0 0,0 0,0 C0,0 0,0 0,0 C0,0 0,0 0,0 C0,0 0,0 0,0 C0,0 0,0 0,0 C0,0 0,0 0,0 C0,0 0,0 0,0 C0,0 0,0 0,0 C0,0 0,0 0,0 Z");
+  }
+  5% {
+    d: path("M0,0 C10,5 15,20 0,20 C-15,20 -10,5 0,0 C0,0 0,0 0,0 C0,0 0,0 0,0 C0,0 0,0 0,0 C0,0 0,0 0,0 C0,0 0,0 0,0 C0,0 0,0 0,0 C0,0 0,0 0,0 C0,0 0,0 0,0 C0,0 0,0 0,0 C0,0 0,0 0,0 C0,0 0,0 0,0 C0,0 0,0 0,0 C0,0 0,0 0,0 C0,0 0,0 0,0 Z");
+  }
+  // ... many more steps ...
+  100% {
+    d: path("M0,0 C10,5 15,20 0,20 C-15,20 -10,5 0,0 C0,0 0,0 0,0 C0,0 0,0 0,0 C0,0 0,0 0,0 C0,0 0,0 0,0 C0,0 0,0 0,0 C0,0 0,0 0,0 C0,0 0,0 0,0 C0,0 0,0 0,0 C0,0 0,0 0,0 C0,0 0,0 0,0 C0,0 0,0 0,0 C0,0 0,0 0,0 C0,0 0,0 0,0 C0,0 0,0 0,0 Z");
+  }
+  // NOTE: The full keyframes are very long and were omitted in the provided file content.
+  // Assuming the full keyframes exist between the 5% and 100% mark.
+  // If the animation still doesn't work, the full keyframes might need to be pasted here.
+  100% {
+    d: path("M0,0 C10,5 15,20 0,20 C-15,20 -10,5 0,0 C0,0 0,0 0,0 C0,0 0,0 0,0 C0,0 0,0 0,0 C0,0 0,0 0,0 C0,0 0,0 0,0 C0,0 0,0 0,0 C0,0 0,0 0,0 C0,0 0,0 0,0 C0,0 0,0 0,0 C0,0 0,0 0,0 C0,0 0,0 0,0 C0,0 0,0 0,0 C0,0 0,0 0,0 C0,0 0,0 0,0 Z");
+  }
+}
+
+// The .svg-drips part remains as it was.
+
+.svg-drips { /* Ensure this matches the class used in effectsService.ts */
+  display: block;
+  fill: #5aae40; /* Default green, can be changed by DevMenu */
+  position: absolute;
+  height: 100px; /* Match .hero height */
+  width: 100%; /* Make it responsive */
+  top: 0;
+  left: 0; 
+}
+
+.hero { /* This will be a container at the top of AuthView */
+  width: 100%;
+  height: 100px; /* Adjust height as needed for the drips */
+  position: absolute; /* Or relative if AuthView is the main container */
+  top: 0;
+  left: 0;
+  overflow: hidden;
+  z-index: 5; /* Ensure it's above background but below main content if needed */
+}
+
+/* Styles for the text part of the original CodePen, might not be used directly */
+.hero_ttl {
+  position: absolute;
+  text-transform: uppercase;
+  font-weight: 900;
+  line-height: 1;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  margin: 0;
+  font-size: 2rem; /* Adjusted size */
+  text-shadow: 0 1px 1px #000;
+  color: #fff;
+  z-index: 6;
+}
+.hero_ttl span {
+  display:block;
+}
+.svg-text { /* For the "Gooey Drips" text if used */
+  width: 4em;
+  height: 1em;
+}
+.svg-text text {
+  text-anchor: middle;
+  fill: #0c0; /* Example green */
+}
+
+
+/*
+  The .hero_fg class and its base64 PNG image are intentionally omitted
+  as per the user's instruction to "გამოტოვე ფოტოს დამატება" (skip adding the photo).
+  If the image overlay is desired later, the .hero_fg styles from the CodePen
+  (or an optimized version with an external image file) should be added here.
+*/

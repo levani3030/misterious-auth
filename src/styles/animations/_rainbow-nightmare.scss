@@ -1,0 +1,30 @@
+// Rainbow Nightmare Effect Animation
+
+@keyframes rainbow-nightmare-bg-scroll {
+  0% { background-position: 0% 50%; }
+  100% { background-position: 100% 50%; }
+}
+@keyframes rainbow-filter-cycle {
+  0% { filter: hue-rotate(0deg) saturate(2) brightness(1.1); }
+  100% { filter: hue-rotate(360deg) saturate(2) brightness(1.1); }
+}
+@keyframes rainbow-shape-distort {
+    0%, 100% { transform: scale(1) rotate(0deg); border-radius: 15px; }
+    25% { transform: scale(1.1, 0.9) rotate(5deg); border-radius: 50% 20%; }
+    50% { transform: scale(0.9, 1.1) rotate(-5deg); border-radius: 20% 50%; }
+    75% { transform: scale(1.05) rotate(0deg); border-radius: 30px; }
+}
+html.horror-rainbow-nightmare .auth-view {
+  background-image: linear-gradient(90deg, red, orange, yellow, green, blue, indigo, violet, red);
+  background-size: 200% 100%;
+  animation: rainbow-nightmare-bg-scroll 5s linear infinite, rainbow-filter-cycle 3s linear infinite alternate;
+}
+html.horror-rainbow-nightmare .auth-card-wrapper { /* Target wrapper */
+  animation: rainbow-shape-distort 4s ease-in-out infinite alternate;
+  background-color: rgba(0,0,0,0.6); /* Dark semi-transparent card to see bg */
+  border: 2px solid white;
+  box-shadow: 0 0 20px white;
+}
+html.horror-rainbow-nightmare {
+  --color-white: #FFFFFF; /* Keep text white for contrast */
+}

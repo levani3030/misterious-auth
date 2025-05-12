@@ -1,0 +1,39 @@
+// Distorted Reality Effect Animation
+
+@keyframes distorted-reality-wave {
+  0%, 100% { transform: skewX(0deg) perspective(500px) rotateY(0deg); }
+  25% { transform: skewX(-8deg) perspective(500px) rotateY(5deg) scale(1.02); }
+  50% { transform: skewX(0deg) perspective(500px) rotateY(0deg) scale(0.98); filter: blur(0.5px); }
+  75% { transform: skewX(8deg) perspective(500px) rotateY(-5deg) scale(1.02); }
+}
+@keyframes distorted-reality-text {
+  0%, 100% { letter-spacing: normal; word-spacing: normal; color: var(--color-white); }
+  50% { letter-spacing: 3px; word-spacing: 10px; color: #FF69B4; text-shadow: 0 0 5px #FF69B4; } /* HotPink */
+}
+@keyframes distorted-bg-scroll { // This keyframe was associated with distorted-reality
+  0% { background-position: 0% 0%; }
+  100% { background-position: -200% -200%; }
+}
+
+html.horror-distorted-reality .auth-card-wrapper { /* Target wrapper */
+  animation: distorted-reality-wave 5s ease-in-out infinite alternate;
+}
+/* Target elements *within* the wrapper */
+html.horror-distorted-reality .auth-card-wrapper .title, 
+html.horror-distorted-reality .auth-card-wrapper .subtitle,
+html.horror-distorted-reality .auth-card-wrapper label,
+html.horror-distorted-reality .auth-card-wrapper input,
+html.horror-distorted-reality .auth-card-wrapper button {
+  animation: distorted-reality-text 6s ease-in-out infinite alternate;
+}
+html.horror-distorted-reality {
+  --auth-background-color: repeating-linear-gradient(
+    45deg,
+    #222,
+    #222 10px,
+    #111 10px,
+    #111 20px
+  );
+  background-size: 200% 200%;
+  animation: distorted-bg-scroll 10s linear infinite;
+}

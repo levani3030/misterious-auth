@@ -1,0 +1,45 @@
+// Hell Portal Effect Animation
+
+@keyframes hell-portal-rotate {
+  0% { transform: rotate(0deg) scale(0.7); } /* Start slightly smaller */
+  50% { transform: rotate(180deg) scale(1); } /* Grow to full size */
+  100% { transform: rotate(360deg) scale(0.7); } /* Shrink back */
+}
+@keyframes hell-portal-colors {
+  0% { background: radial-gradient(ellipse at center, #ff2000 0%, #600000 50%, #000000 80%); box-shadow: 0 0 30px 10px #ff2000, inset 0 0 20px #600000, 0 0 60px 20px #300000; }
+  33% { background: radial-gradient(ellipse at center, #ff6000 0%, #902000 50%, #100500 80%); box-shadow: 0 0 40px 15px #ff6000, inset 0 0 25px #902000, 0 0 70px 25px #400500; }
+  66% { background: radial-gradient(ellipse at center, #ffA000 0%, #b04000 50%, #201000 80%); box-shadow: 0 0 35px 12px #ffA000, inset 0 0 22px #b04000, 0 0 65px 22px #501000; }
+  100% { background: radial-gradient(ellipse at center, #ff2000 0%, #600000 50%, #000000 80%); box-shadow: 0 0 30px 10px #ff2000, inset 0 0 20px #600000, 0 0 60px 20px #300000; }
+}
+@keyframes hell-portal-suck-in { 
+    0%, 100% { transform: scale(1) rotate(0deg); opacity: 1; }
+    25% { transform: scale(0.98) rotate(0.5deg); opacity: 0.9; }
+    50% { transform: scale(0.95) rotate(-0.5deg); opacity: 0.8; filter: blur(0.5px); }
+    75% { transform: scale(0.97) rotate(0.2deg); opacity: 0.85; }
+}
+html.horror-hell-portal .auth-view {
+  position: relative;
+  overflow: hidden;
+  background-color: #080808 !important; 
+}
+html.horror-hell-portal .auth-view::before { 
+  content: "";
+  position: absolute;
+  top: 50%; left: 50%;
+  width: 800px; height: 800px; /* Increased size 4x */
+  margin-top: -400px; margin-left: -400px; /* Adjusted margin for new size */
+  border-radius: 50%;
+  animation: hell-portal-rotate 15s linear infinite, hell-portal-colors 5s ease-in-out infinite alternate; /* Adjusted timings */
+  z-index: 1;
+}
+html.horror-hell-portal .auth-card-wrapper { /* Target wrapper */
+  animation: hell-portal-suck-in 3s ease-in-out infinite alternate;
+  z-index: 2;
+  position: relative;
+  background-color: rgba(10,0,0,0.8);
+  border: 1px solid #500;
+}
+html.horror-hell-portal {
+  --color-white: #ff6347; /* Tomato */
+  --color-white-rgb: 255,99,71;
+}

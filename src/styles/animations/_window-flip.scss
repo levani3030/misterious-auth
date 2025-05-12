@@ -1,0 +1,10 @@
+// Window Flip Effect Animation
+
+@keyframes window-flip {
+  0% { transform: rotateY(0deg); }
+  100% { transform: rotateY(180deg); }
+}
+
+html.horror-window-flip .auth-view {
+  animation: window-flip 0.7s ease-in-out; 
+}

@@ -1,0 +1,26 @@
+// Psychedelic Nightmare Effect Animation
+
+@keyframes psychedelic-nightmare-colors {
+  0% { filter: hue-rotate(0deg) saturate(1); }
+  25% { filter: hue-rotate(90deg) saturate(2) brightness(1.2); }
+  50% { filter: hue-rotate(180deg) saturate(0.5) contrast(1.5); }
+  75% { filter: hue-rotate(270deg) saturate(2.5) brightness(0.8); }
+  100% { filter: hue-rotate(360deg) saturate(1); }
+}
+@keyframes psychedelic-nightmare-shape {
+  0%, 100% { transform: scale(1) skew(0deg); border-radius: 15px; }
+  20% { transform: scale(1.05, 0.95) skew(-5deg, 2deg); border-radius: 30px 10px; }
+  40% { transform: scale(0.9, 1.1) skew(3deg, -3deg); opacity: 0.8; }
+  60% { transform: scale(1.1, 0.9) skew(-2deg, 5deg); border-radius: 10px 30px; }
+  80% { transform: scale(0.95, 1.05) skew(5deg, -1deg); opacity: 0.9; }
+}
+html.horror-psychedelic-nightmare .auth-view {
+  animation: psychedelic-nightmare-colors 4s linear infinite;
+}
+html.horror-psychedelic-nightmare .auth-card-wrapper { /* Target wrapper */
+  animation: psychedelic-nightmare-shape 3s ease-in-out infinite alternate;
+  box-shadow: 0 0 30px rgba(var(--color-white-rgb), 0.5); /* Pulsing shadow */
+}
+html.horror-psychedelic-nightmare {
+  --auth-background-color: #110011; /* Dark purple base */
+}

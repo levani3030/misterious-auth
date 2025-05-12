@@ -1,0 +1,18 @@
+// Pulse Effect Animation (used by Blood Moon)
+
+@keyframes pulse {
+  0% { transform: scale(1); box-shadow: 0 0 0 0 rgba(var(--color-white-rgb), 0.4); }
+  70% { transform: scale(1.02); box-shadow: 0 0 10px 15px rgba(var(--color-white-rgb), 0); }
+  100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(var(--color-white-rgb), 0); }
+}
+
+html.horror-blood-moon {
+  --color-white: #FF4500; 
+  --color-white-rgb: 255, 69, 0;
+  --auth-background-color: #3D0000;
+}
+
+html.horror-blood-moon .auth-card-wrapper { /* Target wrapper */
+  animation: pulse 2.5s infinite ease-in-out;
+  border-color: rgba(var(--color-white-rgb), 0.5);
+}

@@ -1,0 +1,80 @@
+// Blood Rain Effect Animation
+
+@keyframes blood-drop {
+  0% { transform: translateY(-100px) scaleY(1); opacity: 1; }
+  90% { transform: translateY(100vh) scaleY(1); opacity: 1; }
+  100% { transform: translateY(100vh) scaleY(3) scaleX(0.5); opacity: 0; }
+}
+
+@keyframes blood-splatter {
+  0% { transform: scale(0); opacity: 0; }
+  10% { transform: scale(1); opacity: 1; }
+  100% { transform: scale(1.2); opacity: 0; }
+}
+
+html.horror-blood-rain {
+  --color-white: #ff7777;
+  --color-white-rgb: 255,119,119;
+  --auth-background-color: #300000;
+}
+
+html.horror-blood-rain .auth-view {
+  position: relative;
+  overflow: hidden;
+  background: 
+    linear-gradient(rgba(80, 0, 0, 0.3), rgba(80, 0, 0, 0.3)),
+    url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><filter id="noise"><feTurbulence type="fractalNoise" baseFrequency="0.8" numOctaves="3" stitchTiles="stitch"/></filter><rect width="100" height="100" filter="url(%23noise)" opacity="0.2"/></svg>');
+}
+
+/* Create multiple blood drops using box-shadow */
+html.horror-blood-rain .auth-view::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 3px;
+  height: 30px;
+  background-color: darkred;
+  border-radius: 0 0 50% 50%;
+  animation: blood-drop 1.5s linear infinite;
+  box-shadow: 
+    10vw 10vh 0 0 darkred,
+    30vw 20vh 0 0 #a00000,
+    70vw 5vh 0 0 #800000,
+    50vw 15vh 0 0 #c00000,
+    20vw 25vh 0 0 darkred,
+    80vw 30vh 0 0 #a00000,
+    40vw 35vh 0 0 #800000,
+    60vw 40vh 0 0 #c00000;
+  z-index: 1;
+}
+
+/* Blood splatter effects */
+html.horror-blood-rain .auth-card-wrapper::before,
+html.horror-blood-rain .auth-card-wrapper::after {
+  content: "";
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  background: radial-gradient(ellipse at center, rgba(200,0,0,0.8) 0%, rgba(100,0,0,0) 70%);
+  border-radius: 50%;
+  animation: blood-splatter 2s ease-out infinite;
+  z-index: 11;
+}
+
+html.horror-blood-rain .auth-card-wrapper::before {
+  top: 20%;
+  left: 20%;
+  animation-delay: 0.5s;
+}
+
+html.horror-blood-rain .auth-card-wrapper::after {
+  top: 60%;
+  left: 70%;
+  animation-delay: 1.5s;
+}
+
+html.horror-blood-rain .auth-card {
+  border: 1px solid rgba(150, 0, 0, 0.5);
+  box-shadow: 0 0 20px rgba(150, 0, 0, 0.3);
+}

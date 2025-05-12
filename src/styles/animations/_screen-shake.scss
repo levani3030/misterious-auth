@@ -1,0 +1,13 @@
+// Screen Shake Effect Animation
+
+@keyframes screen-shake {
+  0%, 100% { transform: translate(0, 0) rotate(0deg); }
+  10%, 30%, 50%, 70%, 90% { transform: translate(-5px, 5px) rotate(-1deg); }
+  20%, 40%, 60%, 80% { transform: translate(5px, -5px) rotate(1deg); }
+}
+
+html.horror-screen-shake .auth-card-wrapper {
+  animation: screen-shake 0.3s linear infinite !important;
+  will-change: transform;
+  perspective: 1000px; /* For better 3D effect */
+}

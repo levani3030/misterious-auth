@@ -1,0 +1,58 @@
+// Lightning Effect Animation
+
+@keyframes lightning-flash-enhanced {
+  0%, 100% { 
+    filter: brightness(1) contrast(1);
+    background-color: transparent;
+  }
+  1%, 1.5%, 3%, 3.5% { 
+    filter: brightness(4) contrast(2);
+    background-color: rgba(255, 255, 255, 0.3);
+  }
+  2%, 4% { 
+    filter: brightness(1.5) contrast(1.5);
+    background-color: rgba(200, 230, 255, 0.1);
+  }
+  5%, 95% { /* Longer pause */
+    filter: brightness(1) contrast(1);
+    background-color: transparent;
+  }
+  96%, 96.5% {
+    filter: brightness(3) contrast(2);
+    background-color: rgba(255, 255, 255, 0.2);
+  }
+}
+
+html.horror-lightning {
+  --color-white: #ffffff;
+  --auth-background-color: #0a0a20;
+}
+
+html.horror-lightning .auth-view {
+  animation: lightning-flash-enhanced 2s linear infinite;
+  position: relative;
+  overflow: hidden;
+}
+
+html.horror-lightning .auth-view::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 50%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 0) 0%,
+    rgba(255, 255, 255, 0.3) 50%,
+    rgba(255, 255, 255, 0) 100%
+  );
+  animation: lightning-strike 4s linear infinite;
+  z-index: 1;
+}
+
+@keyframes lightning-strike {
+  0% { left: -100%; opacity: 0; }
+  10% { left: 120%; opacity: 0.8; }
+  100% { left: 120%; opacity: 0; }
+}

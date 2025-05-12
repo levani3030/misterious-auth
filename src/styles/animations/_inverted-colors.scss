@@ -1,0 +1,11 @@
+// Inverted Colors Effect Animation
+
+html.horror-inverted-colors .auth-view {
+  filter: invert(100%);
+}
+
+html.horror-inverted-colors .auth-view * {
+  // This could be used to selectively un-invert certain elements if needed,
+  // but for a full inversion, it might not be necessary.
+  // Example: filter: invert(100%); if they were double-inverted.
+}

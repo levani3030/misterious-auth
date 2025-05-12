@@ -1,0 +1,38 @@
+// Heartbeat Effect Animation - New Concept
+
+@keyframes heartbeat-pulse {
+  0% {
+    transform: scale(1);
+    background-color: rgba(60, 0, 0, 0.7); // Darker red, slightly transparent
+    border-color: rgba(150, 0, 0, 0.8);
+    box-shadow: 0 0 10px rgba(139,0,0,0.3);
+  }
+  50% {
+    transform: scale(1.02); // Slightly larger
+    background-color: rgba(100, 0, 0, 0.85); // Brighter red, slightly more opaque
+    border-color: rgba(200, 0, 0, 1);
+    box-shadow: 0 0 25px 10px rgba(180,0,0,0.5); // More pronounced glow
+  }
+  100% {
+    transform: scale(1);
+    background-color: rgba(60, 0, 0, 0.7);
+    border-color: rgba(150, 0, 0, 0.8);
+    box-shadow: 0 0 10px rgba(139,0,0,0.3);
+  }
+}
+
+html.horror-heartbeat {
+  // These root variables might still be useful for text or other elements
+  --auth-background-color: #100000; 
+  --color-white: #FFC0CB; // Pinkish white for contrast
+  --color-white-rgb: 255,192,203;
+}
+
+html.horror-heartbeat .auth-card-wrapper { /* Target wrapper */
+  animation: heartbeat-pulse 1.2s ease-in-out infinite;
+  // Ensure other properties are set for the animation to look good
+  // background-color is now part of the animation
+  // border-color is now part of the animation
+  // box-shadow is now part of the animation
+  // transform-origin: center; // Good for scaling
+}
